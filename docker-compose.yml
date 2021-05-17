@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  loeschcke:
+    restart: "always"
+    image: loeschcke-image
+    container_name: "loeschcke"
+    environment:
+      PORT: 80
+      VIRTUAL_HOST: loeschcke.dk
+      LETSENCRYPT_HOST: loeschcke.dk
+      LETSENCRYPT_EMAIL: stefan@loeschcke.dk
+
+networks:
+  default:
+    name: letsencrypt
+    
