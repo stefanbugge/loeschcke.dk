@@ -1,4 +1,4 @@
-.PHONY: build run
+.PHONY: build run load_and_run
 
 build:
 	docker build -t loeschcke-image .
