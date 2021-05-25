@@ -22,7 +22,7 @@ jobs:
         PASSPHRASE: ${{ secrets.PASSPHRASE }}
       with:
         source: "./loeschcke-image.tar.gz"
-        target: "/home/sbugge/git/loeschcke.dk2"
+        target: "/home/sbugge/git/loeschcke.dk/docker"
 
     - name: Executing remote  command
       uses: appleboy/ssh-action@master
@@ -31,4 +31,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-        script: cat /home/sbugge/git/loeschcke.dk2/README.md
+        script: make load_and_run
