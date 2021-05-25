@@ -24,11 +24,13 @@ jobs:
         source: "./loeschcke-image.tar.gz"
         target: "/home/sbugge/git/loeschcke.dk/docker"
 
-    - name: Executing remote  command
+    - name: Executing remote command
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-        script: make load_and_run
+        script: |
+          cd "/home/sbugge/git/loeschcke.dk/docker"
+          make load_and_run
