@@ -16,6 +16,7 @@ jobs:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         KEY: ${{ secrets.SSHKEY }}
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
       with:
         source: "."
         target: "/home/sbugge/git/loeschcke.dk2"
@@ -26,4 +27,5 @@ jobs:
         host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         KEY: ${{ secrets.SSHKEY }}
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
         script: cat /home/sbugge/git/loeschcke.dk2/README.md
