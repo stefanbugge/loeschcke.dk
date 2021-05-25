@@ -1,4 +1,4 @@
-.PHONY: build run load_and_run
+.PHONY: build run load-and-run
 
 build:
 	docker build -t loeschcke-image .
@@ -6,7 +6,7 @@ build:
 run:
 	docker run -d -p 80:80 --name loeschcke loeschcke-image
 
-load_and_run:
+load-and-run:
 	docker load < docker/loeschcke-image.tar.gz
 	docker-compose up --build -d
 
