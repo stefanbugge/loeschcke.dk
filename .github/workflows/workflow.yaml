@@ -32,5 +32,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          cd "/home/sbugge/git/loeschcke.dk"
+          cd /home/sbugge/git/loeschcke.dk
           make load-and-run
