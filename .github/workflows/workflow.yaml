@@ -33,4 +33,4 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           cd "/home/sbugge/git/loeschcke.dk"
-          make load_and_run
+          make load-and-run
