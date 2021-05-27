@@ -21,8 +21,8 @@ jobs:
         KEY: ${{ secrets.SSH_KEY }}
         PASSPHRASE: ${{ secrets.PASSPHRASE }}
       with:
-        source: "./loeschcke-image.tar.gz"
-        target: "/home/sbugge/git/loeschcke.dk/docker"
+        source: "./loeschcke-image.tar.gz,./docker-compose.yml"
+        target: "/srv/loeschcke.dk"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -32,6 +32,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |          
-          cd /home/sbugge/git/loeschcke.dk
-          docker load < docker/loeschcke-image.tar.gz
+          cd /srv/loeschcke.dk
+          docker-compose rm -f
+          docker load < loeschcke-image.tar.gz
           docker-compose up --build -d
