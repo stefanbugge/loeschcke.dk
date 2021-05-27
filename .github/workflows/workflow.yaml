@@ -31,5 +31,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-        script: |
-          cd /home/sbugge/git/loeschcke.dk && make load-and-run
+        script: |          
+          cd /home/sbugge/git/loeschcke.dk
+          docker load < docker/loeschcke-image.tar.gz
+          docker-compose up --build -d
